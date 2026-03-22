@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Custom List Style</title>
+    <style>
+        .list1 {
+            list-style-image: url('sqpurple.gif');
+        }
+
+        .list2 {
+            list-style-image: url('sqorange.gif');
+        }
+
+        .list3 {
+            list-style-type: none;
+            color: black;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list1">
+        <li>Coffee</li>
+        <li>Tea
+            <ul class="list2">
+                <li><span style="color: orange; font-weight: bold;">Cold</span><span> Tea</span>
+                    <ul class="list3">
+                        <li>Jasmine</li>
+                        <li>Green</li>
+                    </ul>
+                </li>
+                <li><span style="color: orange; font-weight: bold;">Hot</span><span> Tea</span></li>
+            </ul>
+        </li>
+        <li>Coca Cola</li>
+    </ul>
+</body>
+
+</html>
