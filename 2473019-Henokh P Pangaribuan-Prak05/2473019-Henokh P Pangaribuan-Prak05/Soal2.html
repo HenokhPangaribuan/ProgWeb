@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .kotak {
+            position: relative;
+            width: 700px;
+            height: 300px;
+            padding: 20px;
+        }
+
+        img {
+            position: absolute;
+            width: 200px;
+            top: 50px;
+        }
+
+        .bawah {
+            z-index: 1;
+        }
+
+        .tengah {
+            left: 200px;
+            z-index: 2;
+        }
+
+        .atas {
+            z-index: 3;
+        }
+
+        .kiri {
+            left: 40px;
+        }
+
+        .kanan {
+            left: 360px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kotak">
+
+        <img src="src/circle-red.png" class="bawah kiri">
+        <img src="src/circle-red.png" class="bawah kanan">
+
+        <img src="src/circle-purple.png" class="tengah">
+
+        <img src="src/circle-red-half.png" class="atas kiri">
+        <img src="src/circle-red-half.png" class="atas kanan">
+
+    </div>
+
+</body>
+
+</html>

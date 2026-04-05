@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            width: 620px;
+            border: 1px solid black;
+        }
+
+        .header {
+            display: flex;
+            height: 120px;
+        }
+
+        .logo {
+            width: 120px;
+        }
+
+        .judul {
+            width: 340px;
+            background: yellow;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 30px;
+            font-size: 30px;
+        }
+
+        .gambar-kanan {
+            width: 160px;
+        }
+
+        .logo img,
+        .gambar-kanan img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .konten {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 120px;
+            background: url("src/bg_sea.png");
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .menu{
+            text-decoration: underline;
+            margin: 6px 0;
+        }
+
+        .kanan {
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .isi-utama {
+            flex: 1;
+            padding: 10px;
+            color: #4169E1;
+            text-align: justify;
+        }
+
+        .isi-utama h2 {
+            text-align: center;
+        }
+
+        .gambar-foto {
+            float: right;
+            width: 200px;
+            margin-left: 10px;
+            border: 1px solid black;
+        }
+
+        .gambar-foto img {
+            width: 100%;
+            height: 150px;
+        }
+
+        .keterangan {
+            background: #4169E1;
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .footer {
+            background: #4169E1;
+            color: black;
+            text-align: right;
+            padding: 5px;
+            font-size: 12px;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="logo">
+                <img src="src/logo_zoo.png">
+            </div>
+
+            <div class="judul">
+                Having trouble putting your little gorilla to bed
+            </div>
+
+            <div class="gambar-kanan">
+                <img src="src/lion.png">
+            </div>
+        </div>
+
+        <div class="konten">
+
+            <div class="sidebar">
+                <div class="menu">
+                    <div>Lions</div>
+                    <div>Armadillos</div>
+                    <div>Hyenas</div>
+                    <div>Elephants</div>
+                    <div>Giraffes</div>
+                    <div>Gorillas</div>
+                </div>
+            </div>
+
+            <div class="kanan">
+
+                <div class="isi-utama">
+
+                    <h2>The Truth About Elephants</h2>
+
+                    <div class="gambar-foto">
+                        <img src="src/elephant.png">
+                        <div class="keterangan">
+                            A baby elephant hang out with it's mom, aunts and great aunts,
+                            and maybe even it's grandmother
+                        </div>
+                    </div>
+
+                    <p>
+                        It's hard to tell what goes through a baby elephant's mind when its mom is trying to put it to
+                        sleep.
+                        Do you think baby elephants wake up in the middle of the night and cry?
+                        Do their moms and dads take turns getting up with them to rock them back to sleep?
+                        How do you rock an elephant, anyway?
+                    </p>
+
+                    <p>
+                        And what about gorillas? Today in the paper there's a story about a new gorilla that was just
+                        born in Franklin Park.
+                        Its mom is holding on to it just like any proud human mom.
+                        And I have to wonder if they go through as much trauma as that human mom when it comes to sleep,
+                        and food,
+                        and diapers, and running into the street.
+                    </p>
+
+                    <p>
+                        Why is it so easy for them? Are they better parents? Do they just not worry about every little
+                        detail?
+                        I've never known a gorilla to read and study carefully seventeen books on bringing up baby
+                        gorillas.
+                        And they seem to know just what to do.
+                        They never worry about spoiling their little gorilla babies.
+                        They never worry about not having enough time with them.
+                        Now, don't get me wrong, I'd rather be human than a gorilla any day.
+                        Just imagine having to sit in a zoo.
+                        Forget discrete nursing...
+                        (Did you figure out yet that while gorillas were on my mind, I could only find a picture of the
+                        elephant?)
+                    </p>
+
+                </div>
+
+                <div class="footer">
+                    Copyright &copy; 2002 by Northampton Zoological Society, Inc.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

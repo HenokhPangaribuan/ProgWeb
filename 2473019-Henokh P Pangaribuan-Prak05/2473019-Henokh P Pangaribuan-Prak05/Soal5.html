@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            width: max-content;
+        }
+
+        .menu>li {
+            float: left;
+            position: relative;
+            margin-right: 3px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            background: white;
+            border: 2px dotted grey;
+        }
+
+        .menu a:hover {
+            background: black;
+            color: white;
+        }
+
+        .sub {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        .sub li {
+            margin-top: 3px;
+        }
+
+        .menu li:hover .sub {
+            display: block;
+        }
+
+        .menu::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul class="menu">
+
+        <li><a href="#">Home</a></li>
+
+        <li>
+            <a href="#">News</a>
+            <ul class="sub">
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Movie</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+
+    </ul>
+
+</body>
+
+</html>
