@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <style>
+        #kotak {
+            width: 800px;
+            height: 600px;
+            margin-top: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #fff;
+        }
+
+        .isi {
+            background-color: orange;
+        }
+    </style>
+
+    <script>
+        function buat() {
+
+            var t = parseInt(document.getElementById("tinggi").value);
+
+            if (isNaN(t) || t <= 0) {
+                alert("Masukkan tinggi yang valid!");
+                return;
+            }
+
+            var h = "";
+
+            for (var i = 1; i <= t; i++) {
+
+                h += "<tr>";
+
+                for (var j = 0; j < t - i; j++) {
+                    h += "<td></td>";
+                }
+
+                for (var k = 0; k < 2 * i - 1; k++) {
+                    h += "<td class='isi'></td>";
+                }
+
+                h += "</tr>";
+            }
+
+            document.getElementById("piramida").innerHTML = h;
+        }
+    </script>
+</head>
+
+<body>
+
+    Tinggi Piramida:
+    <input type="text" id="tinggi">
+    <br>
+
+    <button onclick="buat()">Proses</button>
+
+    <div id="kotak">
+        <table id="piramida"></table>
+    </div>
+
+</body>
+
+</html>

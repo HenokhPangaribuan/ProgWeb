@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 2px;
+            border: 1px solid black;
+            padding: 2px;
+        }
+
+        td {
+            padding: 4px 8px;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 17px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+    </style>
+
+    <script>
+        function buatTabel() {
+
+            var angka;
+
+            do {
+                angka = prompt("A number?");
+            } while (isNaN(angka) || angka === "");
+
+            angka = parseInt(angka);
+
+            var isi = "";
+
+            for (var i = 1; i <= angka; i++) {
+                isi += "<tr><td>" + i + "</td><td>x</td><td>" +
+                    angka + "</td><td>=</td><td>" +
+                    (i * angka) + "</td></tr>";
+            }
+
+            document.getElementById("tabelPerkalian").innerHTML = isi;
+        }
+    </script>
+</head>
+
+<body onload="buatTabel()">
+
+    <table>
+        <tbody id="tabelPerkalian"></tbody>
+    </table>
+
+</body>
+
+</html>

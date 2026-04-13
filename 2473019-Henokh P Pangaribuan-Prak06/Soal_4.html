@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 500px;
+            margin-top: 20px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            width: 500px;
+        }
+
+        .label-dalam {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .kotak {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid black;
+        }
+
+        select {
+            width: 150px;
+            padding: 6px;
+            border: 1px solid black;
+        }
+
+        .kotak-penuh {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 6px 15px;
+            margin: 5px;
+            border: 1px solid black;
+            background: none;
+            font-weight: bold;
+            color: blue;
+        }
+
+        .teks {
+            width: 150px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+
+    <script>
+        function proses() {
+            var nilai = document.getElementById("input").value;
+            var mode = document.getElementById("mode").value;
+            var hasil = "";
+
+            if (mode == "decbin") {
+
+                var n = parseInt(nilai);
+
+                if (isNaN(n) || n < 0 || n > 255) {
+                    alert("Input decimal harus 0 - 255");
+                    return;
+                }
+
+                for (var i = 7; i >= 0; i--) {
+
+                    var p = 1;
+
+                    for (var j = 0; j < i; j++) {
+                        p = p * 2;
+                    }
+
+                    if (n >= p) {
+                        hasil += "1";
+                        n = n - p;
+                    } else {
+                        hasil += "0";
+                    }
+                }
+
+            } else {
+
+                if (nilai.length != 8) {
+                    alert("Biner harus 8 digit");
+                    return;
+                }
+
+                for (var i = 0; i < 8; i++) {
+                    if (nilai[i] != "0" && nilai[i] != "1") {
+                        alert("Biner hanya boleh 0 dan 1");
+                        return;
+                    }
+                }
+
+                var total = 0;
+
+                for (var i = 0; i < 8; i++) {
+
+                    if (nilai[i] == "1") {
+
+                        var p = 1;
+
+                        for (var j = 0; j < 7 - i; j++) {
+                            p = p * 2;
+                        }
+
+                        total = total + p;
+                    }
+                }
+
+                hasil = total;
+            }
+
+            document.getElementById("output").value = hasil;
+        }
+
+        function resetForm() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").value = "";
+        }
+    </script>
+</head>
+
+<body>
+
+    <table>
+
+        <tr>
+            <td class="teks">
+                <div class="label-dalam">Input :</div>
+            </td>
+            <td>
+                <div class="kotak">
+                    <input type="text" id="input">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="teks">
+                <div class="label-dalam">Output :</div>
+            </td>
+            <td>
+                <div class="kotak">
+                    <input type="text" id="output" readonly>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="kotak-penuh">
+                    <select id="mode">
+                        <option value="decbin">decimal-biner</option>
+                        <option value="bindec">biner-decimal</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="kotak-penuh">
+                    <button onclick="proses()">PROSES</button>
+                    <button onclick="resetForm()">RESET</button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+
+</html>
