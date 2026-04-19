@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        .box {
+            width: 300px;
+            border: 2px solid gray;
+            padding: 10px;
+            box-shadow: 3px 3px 8px gray;
+        }
+
+        .dropdown {
+            margin-left: 12px;
+        }
+
+        .label-text {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        input,
+        select {
+            margin: 5px 0;
+        }
+    </style>
+
+    <script>
+        var data = [];
+
+        function tambahData() {
+            var input = document.getElementById("txtData").value;
+
+            if (input === "") return;
+
+            data.push(parseInt(input));
+
+            document.getElementById("txtData").value = "";
+        }
+
+        function proses() {
+            var pilihan = document.getElementById("cmbOperasi").value;
+            var hasil = "";
+
+            if (pilihan == "display") {
+                hasil = data.join(", ");
+            }
+
+            else if (pilihan == "count") {
+                hasil = data.length;
+            }
+
+            else if (pilihan == "sum") {
+                var total = 0;
+                for (var i = 0; i < data.length; i++) {
+                    total += data[i];
+                }
+                hasil = total;
+            }
+
+            else if (pilihan == "average") {
+                var total = 0;
+                for (var i = 0; i < data.length; i++) {
+                    total += data[i];
+                }
+                hasil = (data.length > 0) ? total / data.length : 0;
+            }
+
+            else if (pilihan == "max") {
+                hasil = Math.max(...data);
+            }
+
+            else if (pilihan == "min") {
+                hasil = Math.min(...data);
+            }
+
+            else if (pilihan == "ganjil") {
+                var arr = data.filter(x => x % 2 != 0);
+                hasil = arr.join(", ");
+            }
+
+            else if (pilihan == "genap") {
+                var arr = data.filter(x => x % 2 == 0);
+                hasil = arr.join(", ");
+            }
+
+            else if (pilihan == "hapus") {
+                data = [];
+            }
+
+            document.getElementById("txtHasil").value = hasil;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div>
+            <span class="label-text">Data :</span>
+            <input type="text" id="txtData">
+        </div>
+
+        <div>
+            <button onclick="tambahData()">Add</button>
+            <select id="cmbOperasi" class="dropdown" onchange="proses()">
+                <option value="">Pilih Operasi</option>
+                <option value="display">Display</option>
+                <option value="count">Count</option>
+                <option value="sum">Sum</option>
+                <option value="average">Average</option>
+                <option value="max">Max</option>
+                <option value="min">Min</option>
+                <option value="ganjil">Ganjil</option>
+                <option value="genap">Genap</option>
+                <option value="hapus">Hapus</option>
+            </select>
+        </div>
+
+        <div>
+            <span class="label-text">Hasil :</span>
+            <input type="text" id="txtHasil" readonly>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

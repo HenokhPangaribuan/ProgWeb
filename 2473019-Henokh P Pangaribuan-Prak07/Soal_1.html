@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        .kotak {
+            width: 360px;
+            padding: 15px;
+            border: 1px solid #999;
+            box-shadow: 2px 2px 5px #999;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            resize: none;
+        }
+
+        .counter {
+            text-align: right;
+            width: 60px;
+        }
+    </style>
+
+    <script>
+        function call_onKeyPress(ob) {
+
+            var obval = ob.value;
+
+            if (obval.length > 256) {
+                ob.value = obval.substr(0, 256);
+            }
+
+            document.getElementById("txt2").value =
+                obval.length + "/256";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="kotak">
+
+        <table>
+
+            <tr>
+                <td width="80">Judul</td>
+                <td>:</td>
+                <td>
+                    <input type="text" size="30">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Isi</td>
+                <td>:</td>
+                <td>
+                    <textarea onkeyup="call_onKeyPress(this)" onkeydown="call_onKeyPress(this)"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" align="right">
+                    <input type="text" id="txt2" value="0/256" readonly class="counter">
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>
