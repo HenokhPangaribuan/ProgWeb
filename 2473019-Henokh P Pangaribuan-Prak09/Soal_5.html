@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+
+        body{
+            font-family: Arial;
+        }
+
+        .box{
+            width:400px;
+            border:1px solid #ccc;
+            padding:15px;
+            margin:auto;
+        }
+
+        input{
+            width:270px;
+            height:25px;
+            margin-bottom:15px;
+        }
+
+        p{
+            margin:8px 0;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <input type="text" id="txtCari">
+
+    <p>Sun Microsystem</p>
+    <p>Apache Software Foundation</p>
+    <p>Oracle Coorporation</p>
+    <p>International Bussiness Machines</p>
+    <p>Microsoft Coorporation</p>
+    <p>Apple Inc</p>
+    <p>Sap Ag</p>
+    <p>Accenture</p>
+    <p>Computer Sciences Coorporation</p>
+    <p>Google</p>
+    <p>Softbank</p>
+    <p>Yahoo</p>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#txtCari").keyup(function(){
+
+        var cari = $(this).val().toLowerCase();
+
+        $("p").css("color","black");
+
+        $("p").each(function(index, domEle){
+
+            var text = $(domEle).text().toLowerCase();
+
+            if(text.indexOf(cari) != -1 && cari != ""){
+
+                $(domEle).css("color","red");
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

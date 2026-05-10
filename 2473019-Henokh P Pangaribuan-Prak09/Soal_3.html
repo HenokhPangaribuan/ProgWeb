@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;
+            text-align: center;
+        }
+
+        span {
+            color: red;
+        }
+
+        button {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+
+    <button>Change colors</button>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+
+        $("div").click(function () {
+            $("div").css("background", "");
+            $("div").removeAttr("id");
+            $(this).css("background", "red");
+            $(this).attr("id", "merah");
+
+        });
+
+
+        $("button").click(function () {
+            $("div").each(function (index, domEle) {
+                if ($(domEle).attr("id") == "merah") {
+                    return false;
+                }
+
+                $(domEle).css("background", "yellow");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

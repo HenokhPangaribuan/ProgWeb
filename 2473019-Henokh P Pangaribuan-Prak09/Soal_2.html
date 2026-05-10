@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .box {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #ccc;
+        }
+
+        input {
+            width: 150px;
+            padding: 3px;
+        }
+
+        button {
+            padding: 3px 8px;
+        }
+
+        .list div {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <input type="text" id="nama" />
+    <button id="add">Add</button>
+    <button id="search">Search</button>
+
+    <div class="list">
+        <div>John Resig</div>
+        <div>George Martin</div>
+        <div>Malcom John Sinclair</div>
+        <div>J. Ohn</div>
+    </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#add").click(function(){
+        var nama = $("#nama").val();
+        if(nama != ""){
+            $("<div>" + nama + "</div>").appendTo(".list");
+            $("#nama").val("");
+        }
+
+    });
+
+    $("#search").hover(function(){
+        var cari = $("#nama").val();
+        $(".list div").css("text-decoration","none");
+        $(".list div:contains('" + cari + "')")
+            .css("text-decoration","underline");
+
+    });
+
+});
+</script>
+
+</body>
+</html>
