@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .kotak {
+            width: 650px;
+            border: 1px solid gray;
+            margin-top: 20px;
+        }
+
+        .atas {
+            padding: 10px;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 20px;
+            border-bottom: 1px solid gray;
+        }
+
+        .isi {
+            padding: 10px;
+        }
+
+        .bawah {
+            padding: 5px;
+            border-top: 1px solid gray;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid gray;
+            padding: 5px;
+        }
+
+        a {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kotak">
+        <div class="atas">
+            <table id="awal">
+                <tr>
+                    <td>Title</td>
+                </tr>
+                <tr>
+                    <td>Content</td>
+                </tr>
+                <tr>
+                    <td>Generator</td>
+                </tr>
+            </table>
+        </div>
+        <div id="hasil"></div>
+    </div>
+    <br>
+    <button id="look">Look</button>
+
+    <script>
+        $("#look").click(function () {
+            $.getJSON("SIJson.txt", function (data) {
+                let tampil = `
+        <div class="judul">
+            <a href="${data.link}">
+                ${data.title}
+            </a>
+        </div>
+        `;
+                $.each(data.items, function (i, d) {
+                    tampil += `
+            <div class="isi">
+                <a href="${d.link}">
+                    ${d.title}
+                </a>
+                <br>
+                By : ${d.author} / <i>${d.published}</i>
+                <br><br>
+                ${d.description}
+                <br><br>
+                Universitas :
+                <a href="${d.universitas.m}">
+                    Click Here
+                </a>
+                <br>
+                Tag(s) : ${d.tags}
+
+            </div>
+            `;
+                });
+                tampil += `
+        <div class="bawah">
+            ©${data.generator}
+        </div>
+        `;
+                $(".atas").hide();
+
+                $("#hasil").html(tampil);
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

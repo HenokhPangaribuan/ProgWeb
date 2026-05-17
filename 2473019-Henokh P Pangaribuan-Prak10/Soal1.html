@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Mahasiswa</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+
+        .box{
+            width: 600px;
+            padding: 20px;
+        }
+
+        .pilih{
+            border: 2px solid black;
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 15px;
+        }
+
+        table{
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th{
+            background-color: black;
+            color: white;
+        }
+
+        .a{
+            background-color: #FFFFCC;
+        }
+
+        .b{
+            background-color: #CCFFAA;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h3>
+        Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A 
+        Pemrograman Web SI Tahun Ajaran 2023/2024
+    </h3>
+
+    <div class="pilih">
+
+        <input type="radio" name="kelas" value="all" checked> All <br>
+
+        <input type="radio" name="kelas" value="A"> Kelas A <br>
+
+        <input type="radio" name="kelas" value="B"> Kelas B <br>
+
+    </div>
+
+    <button id="cari">Search</button>
+
+    <div id="hasil"></div>
+
+</div>
+
+<script>
+
+$("#cari").click(function(){
+
+    let pilih = $(":radio[name='kelas']:checked").val();
+
+    let file = "";
+
+    if(pilih == "A"){
+        file = "nilaiA.js";
+    }
+
+    else if(pilih == "B"){
+        file = "nilaiB.js";
+    }
+
+    else{
+        file = "nilai.js";
+    }
+
+    $.getJSON(file, function(data){
+
+        let tabel = `
+
+        <table>
+
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+
+        `;
+
+        $.each(data.nilai, function(i, d){
+
+            let warna = "";
+
+            if(d.kelas == "A"){
+                warna = "a";
+            }
+
+            else{
+                warna = "b";
+            }
+
+            tabel += `
+
+            <tr class="${warna}">
+                <td>${d.nrp}</td>
+                <td>${d.nama}</td>
+                <td>${d.kelas}</td>
+                <td>${d.nilaiakhir}</td>
+            </tr>
+
+            `;
+
+        });
+
+        tabel += "</table>";
+
+        $("#hasil").html(tabel);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
